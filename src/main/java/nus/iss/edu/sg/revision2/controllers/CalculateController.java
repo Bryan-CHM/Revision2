@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import nus.iss.edu.sg.revision2.utils.CalculateUtils;
+
 @Controller
 @RequestMapping("/calculate")
 public class CalculateController {
@@ -22,22 +24,30 @@ public class CalculateController {
         String firstNum = form.getFirst("firstNum");
         String secondNum = form.getFirst("secondNum");
         String ari = form.getFirst("ari");
-        Integer firstParse = 0;
-        Integer secondParse = 0;
-        try {
-            firstParse = Integer.parseInt(firstNum);
-        } catch (NumberFormatException e) {
-            //TODO: handle exception
+        Integer displayNum = 0;
+        CalculateUtils cUtils = new CalculateUtils();
+
+        if(!cUtils.isInt(firstNum)){
             model.addAttribute("num",firstNum);
+            model.addAttribute("errorCode",1);
             return("numoutofrange");
         }
-        try {
-            secondParse = Integer.parseInt(secondNum);
-        } catch (NumberFormatException e) {
-            //TODO: handle exception
+        if(!cUtils.isInt(secondNum)){
             model.addAttribute("num",secondNum);
+            model.addAttribute("errorCode",2);
             return("numoutofrange");
         }
-        return "";
+        
+        displayNum = cUtils.arithmeticFunc(firstNum, secondNum, ari);
+        
+        if(cUtils.isWithinRange(displayNum)){
+            model.addAttribute("num",displayNum);
+            return("number");
+        }
+        else{
+            model.addAttribute("num",displayNum);
+            model.addAttribute("errorCode",3);
+            return("numoutofrange");
+        }
+        }
     }
-}

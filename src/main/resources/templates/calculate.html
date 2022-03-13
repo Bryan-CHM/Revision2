@@ -9,22 +9,65 @@
 <body>
     <form action="/calculate" method="POST">
 
-        <div>
-            <label for="firstNum">Please Enter 1st Number</label>
-            <input type="text" name="firstNum" id="">
+        <table>
+            <thead>
+                <tr>
+                    <td><label for="firstNum">Enter first number:</label> </td>
+                    <td colspan="2">Select Operation:</td>
+                    <td> <label for="secondNum">Enter second number:</label></td>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    <input type="text" name="firstNum" id="firstNum">
+                </td>
+                <td>
+                    <label for="plus">Plus</label> 
+                </td>
+                <td>
+                    <input type="radio" name="ari" value="plus" id="plus">
+                </td>
+                <td>
+                    <input type="text" name="secondNum" id="secondNum">
+                </td>
+            </tr>
 
-            <label for="ari">Plus</label>
-            <input type="radio" name="ari" value="plus" id="">
-            <label for="ari">Minus</label>
-            <input type="radio" name="ari" value="minus" id="">
-            <label for="ari">Mod</label>
-            <input type="radio" name="ari" value="mod" id="">
-            <label for="ari">Divide</label>
-            <input type="radio" name="ari" value="divide" id="">
-
-            <label for="secondNum">Please Enter 2nd Number</label>
-            <input type="text" name="secondNum" id="">
-        </div>
+                <tr>
+                    <td></td>
+                    <td>
+                        <label for="minus">Minus</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="ari" value="minus" id="minus">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <label for="mod">Mod</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="ari" value="mod" id="mod">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <label for="divide">Divide</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="ari" value="divide" id="divide">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Enter">
+                    </td>
+                </tr>
+            </table>
 
 
 

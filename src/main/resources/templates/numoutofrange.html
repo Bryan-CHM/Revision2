@@ -7,6 +7,9 @@
     <title>Error</title>
 </head>
 <body>
-    <h1><span th:text="${num}"></span> is not a number between 0-30</h1>
+
+    <div data-th-if="${errorCode == 1}"><h1>First Number: <span th:text="${num}"></span> is not a number</h1></div>
+    <div data-th-if="${errorCode == 2}"><h1>Second Number: <span th:text="${num}"></span> is not a number</h1></div>
+    <div data-th-if="${errorCode == 3}"><h1>Calculated Number: <span th:text="${num}"></span> is not within 0 and 30</h1></div>
 </body>
 </html>
